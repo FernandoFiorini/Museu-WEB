@@ -161,17 +161,17 @@ ALTER TABLE tb_objeto ADD CONSTRAINT categoriaobjeto_fk FOREIGN KEY (id_categori
 
 --DROPS
 --------------------------------------------------------------------------------------------------------------------
-ALTER TABLE tb_manutencao DROP CONSTRAINT FKtb_manuten919379;
-ALTER TABLE tb_objeto DROP CONSTRAINT FKtb_objeto425126;
-ALTER TABLE tb_instituicao DROP CONSTRAINT FKtb_institu903228;
-ALTER TABLE tb_objeto DROP CONSTRAINT FKtb_objeto308359;
-ALTER TABLE tb_agendamento DROP CONSTRAINT FKtb_agendam25055;
-ALTER TABLE tb_agendamento DROP CONSTRAINT FKtb_agendam285621;
-ALTER TABLE tb_pessoa DROP CONSTRAINT FKtb_pessoa524382;
-ALTER TABLE tb_cidade DROP CONSTRAINT FKtb_cidade514630;
-ALTER TABLE tb_objeto DROP CONSTRAINT FKtb_objeto162809;
-ALTER TABLE tb_objeto DROP CONSTRAINT FKtb_objeto536522;
-ALTER TABLE tb_objeto DROP CONSTRAINT FKtb_objeto975016;
+ALTER TABLE tb_manutencao DROP CONSTRAINT manutencaoobjeto_fk;
+ALTER TABLE tb_objeto DROP CONSTRAINT secaoobjeto_fk;
+ALTER TABLE tb_instituicao DROP CONSTRAINT cidadeinstituicao_fk;
+ALTER TABLE tb_objeto DROP CONSTRAINT statusobjeto_fk;
+ALTER TABLE tb_agendamento DROP CONSTRAINT agendamentoinstituicao_fk;
+ALTER TABLE tb_agendamento DROP CONSTRAINT pessoagendamento_fk;
+ALTER TABLE tb_pessoa DROP CONSTRAINT cidadepessoa_fk;
+ALTER TABLE tb_cidade DROP CONSTRAINT estadocidade_fk;
+ALTER TABLE tb_objeto DROP CONSTRAINT midiaobjeto_fk;
+ALTER TABLE tb_objeto DROP CONSTRAINT colecaoobjeto_fk;
+ALTER TABLE tb_objeto DROP CONSTRAINT categoriaobjeto_fk;
 DROP TABLE IF EXISTS tb_agendamento CASCADE;
 DROP TABLE IF EXISTS tb_categoria CASCADE;
 DROP TABLE IF EXISTS tb_cidade CASCADE;

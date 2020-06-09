@@ -8,10 +8,19 @@ class ColecaoController {
             dt_colecao: req.body.dataColecao
         } 
   
-        const cidade = await Colecao.create(obj);
+        const colecao = await Colecao.create(obj);
 
         return res.json(
-            cidade
+            colecao
+        );
+    }
+
+    async listar(req, res) {
+  
+        const colecao = await Colecao.findAll();
+
+        return res.json(
+            colecao
         );
     }
 }

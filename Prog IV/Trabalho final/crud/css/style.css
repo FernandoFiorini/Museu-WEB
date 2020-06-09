@@ -1,0 +1,6 @@
+#main {
+  margin-top: 50px;
+}
+
+#divImagem {position:relative; text-align:center; overflow:hidden; height:500px; width:500px}
+#imagemView {position:absolute; left:50%; margin-left:-250px}​

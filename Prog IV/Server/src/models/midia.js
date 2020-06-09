@@ -9,7 +9,7 @@ class tb_midia extends Model {
                    primaryKey: true,
                    autoIncrement:true
                 },
-                bl_midia: Sequelize.BLOB
+                bl_midia: Sequelize.STRING
             },{
                 sequelize,
                 freezeTableName: true,

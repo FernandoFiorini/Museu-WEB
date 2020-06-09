@@ -10,8 +10,11 @@ import Cidade from "../models/cidade";
 import Estado from "../models/estado"
 import Colecao from "../models/colecao"
 import Midia from "../models/midia"
+import Secao from "../models/secao"
+import Categoria from "../models/categoria"
+import Status from "../models/status"
 
-const models = [User, Agendamento, Objeto, Instituicao, Pessoa, Cidade, Estado, Colecao, Midia];
+const models = [User, Agendamento, Objeto, Instituicao, Pessoa, Cidade, Estado, Colecao, Midia, Secao, Categoria,Status];
 
 class Database {
   constructor() {

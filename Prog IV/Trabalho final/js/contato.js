@@ -16,7 +16,31 @@ function enviarMensagem() {
         var email = document.getElementById("emailPessoa").value;
         var idade = document.getElementById("idadePessoa").value;
         var telefone= document.getElementById("telefonePessoa").value;
-        //var cidade = document.getElementById("idadePessoa").value;
+        var cidade = document.getElementById('comboCidade').value;
+
+        var estado = document.getElementById('comboEstado').value;
+
+        if(nome === ""){
+           return alert("Favor preencher o nome")
+        }
+        else if(email === ""){
+            return alert("Favor preencher o email")
+        }
+        else if(idade === ""){
+            return alert("Favor preencher a idade")
+        }
+        else if(telefone === ""){
+            return alert("Favor preencher o telefone")
+        }
+        else if(cidade === ""){
+            return alert("Favor selecionar a cidade")
+        }
+        else if(estado === ""){
+            return alert("Favor selecionar o estado")
+        }
+        
+        
+
 
         obj = {
             "nome": nome.trim(),
@@ -32,7 +56,24 @@ function enviarMensagem() {
         var nomeInstituicao = document.getElementById("nomeEmpresa").value;
         var cpnj = document.getElementById("cnpjEmpresa").value;
         var telefone = document.getElementById("telefoneEmpresa").value;
-        //var cidade = document.getElementById("idadePessoa").value;
+        var cidade = document.getElementById('comboCidade').value;
+        var estado = document.getElementById('comboEstado').value;
+
+        if(nomeInstituicao === ""){
+           return alert("Favor preencher o nome da empresa")
+        }
+        else if(cpnj === ""){
+            return alert("Favor preencher o cpnj");
+        }
+        else if(telefone === ""){
+            return alert("Favor preencher a telefone");
+        }
+        else if(cidade === ""){
+            return alert("Favor selecionar a cidade");
+        }
+        else if(estado === ""){
+            return alert("Favor selecionar o estado");
+        }
 
         obj = {
             "nomeInstituicao": nomeInstituicao.trim(),
@@ -54,7 +95,6 @@ function enviarMensagem() {
         .then(rest => rest.json())
         .then(res =>{
             if(res){
-                console.log("Sucesso salvar")
                 if(selectTipo === "PF"){
                     this.agendarHorario(res.id_pessoa, selectTipo);
                 }else{
@@ -62,7 +102,7 @@ function enviarMensagem() {
                 }
                
             }else{
-                console.log("Falha")
+                alert("Falha ao realizar agendamento")
             }
          
         })
@@ -105,14 +145,14 @@ function agendarHorario(id, selectTipo){
             'Content-Type': 'application/json'
         })
     }
-debugger
+
     return fetch('http://localhost:3333/agendamento', requisicao)
     .then(rest => rest.json())
     .then(res =>{
         if(res){
-            console.log("Agendado Sucesso")
+            alert("Agendamento realizado com sucesso")
         }else{
-            console.log("Agendamento falhou")
+            alert("Falha ao agendar")
         }
      
     })

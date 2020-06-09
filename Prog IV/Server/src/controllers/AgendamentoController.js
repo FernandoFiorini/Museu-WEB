@@ -32,6 +32,7 @@ class AgendamentoController {
             criarObj ? true : false
         );
     }
+    
 }
 
 export default new AgendamentoController();

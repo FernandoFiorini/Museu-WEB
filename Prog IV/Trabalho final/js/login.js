@@ -1,7 +1,7 @@
 function logarUsuario() {
 
     var login = document.getElementById("login").value;
-    var senha = document.getElementById("senha").value;
+    var senha = document.getElementById("password").value;
 
     var obj = {
         "login": login.trim(),
@@ -21,7 +21,7 @@ function logarUsuario() {
         .then(res =>{
             if(res){ 
                 console.log("Login efetuado com sucesso")
-                window.location.href='index.html';
+                window.location.href='crud/index.html' ;
             }else{
                alert("Login ou senha inválidos")
             }

@@ -9,6 +9,22 @@ class MidiaController {
             imagem
         );
     }
+
+    async listarImagemObjeto(req, res) {
+  
+        const codigoImagem = req.body.codigoImagem;
+
+        const imagem = await Midia.findAll({
+            where: { id_midia: codigoImagem }
+        });
+
+        return res.json(
+          
+            imagem
+            
+          
+        );
+    }
 }
 
 export default new MidiaController();

@@ -28,7 +28,7 @@ inner join tb_instituicao ins on ag.id_instituicao = ins.id_instituicao
 where dt_visita between '2020-01-01' and '2020-12-31'
 union all
 select ag.dt_visita, pes.tx_nome from tb_agendamento ag
-inner join tb_pessoa pes on ag.id_instituicao = pes.id_pessoa
+inner join tb_pessoa pes on ag.id_pessoa = pes.id_pessoa
 where dt_visita between '2020-01-01' and '2020-12-31'
 order by dt_visita asc
 

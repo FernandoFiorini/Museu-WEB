@@ -38,25 +38,23 @@ function enviarMensagem() {
         else if(estado === ""){
             return alert("Favor selecionar o estado")
         }
-        
-        
-
 
         obj = {
             "nome": nome.trim(),
             "email": email.trim(),
             "idade": idade.trim(),
             "telefone": telefone.trim(),
-            "cidade": 1
+            "cidade": parseInt(cidade)
         }
 
     }else{
         servico = 'http://localhost:3333/instituicao';
+        
 
         var nomeInstituicao = document.getElementById("nomeEmpresa").value;
         var cpnj = document.getElementById("cnpjEmpresa").value;
         var telefone = document.getElementById("telefoneEmpresa").value;
-        var cidade = document.getElementById('comboCidade').value;
+        var cidade = document.getElementById('comboCidade').value;debugger
         var estado = document.getElementById('comboEstado').value;
 
         if(nomeInstituicao === ""){
@@ -79,7 +77,7 @@ function enviarMensagem() {
             "nomeInstituicao": nomeInstituicao.trim(),
             "cpnj": cpnj.trim(),
             "telefone": telefone.trim(),
-            "cidade": 1
+            "cidade": parseInt(cidade)
         }
     }
 
@@ -117,7 +115,6 @@ function agendarHorario(id, selectTipo){
 
     var idFlag = id;
 
-
     var obj = {};
 
     if(selectTipo === "PF"){
@@ -151,6 +148,8 @@ function agendarHorario(id, selectTipo){
     .then(res =>{
         if(res){
             alert("Agendamento realizado com sucesso")
+            location.reload();
+       
         }else{
             alert("Falha ao agendar")
         }

@@ -19,7 +19,7 @@ class InstituicaoController {
         const criarInstituicao = await Instituicao.create(obj);
 
         return res.json(
-            criarInstituicao.dataValues
+            criarInstituicao
         );
     }
 }

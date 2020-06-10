@@ -14,6 +14,7 @@ import StatusController from "./controllers/StatusController";
 import SecaoController from "./controllers/SecaoController";
 
 import "./config/conectDatabase";
+import ManutencaoController from "./controllers/ManutencaoController";
 
 
 
@@ -29,6 +30,8 @@ routes.post('/pessoa', PessoaController.salvar);
 routes.post('/instituicao', InstituicaoController.salvar);
 routes.post('/colecao', ColecaoController.salvar);
 routes.post('/midia', MidiaController.salvar);
+routes.post('/manutencao', ManutencaoController.salvar);
+
 
 //UPDATE
 routes.put('/objetoUpdate', ObjetoController.update);

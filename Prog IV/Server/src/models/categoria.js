@@ -18,6 +18,7 @@ class tb_categoria extends Model {
         return this;
 
     }
+    
 }
 
 export default tb_categoria;

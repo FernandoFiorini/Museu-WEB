@@ -5,7 +5,7 @@ class CidadeController {
   
         const codigoCidade = req.query.codigoCidade
 
-        console.log(codigoCidade)
+        (codigoCidade)
         const cidade = await Cidade.findAll({
             where: {
               id_estado: codigoCidade,

@@ -13,8 +13,9 @@ import Midia from "../models/midia"
 import Secao from "../models/secao"
 import Categoria from "../models/categoria"
 import Status from "../models/status"
+import Manutencao from "../models/manutencao"
 
-const models = [User, Agendamento, Objeto, Instituicao, Pessoa, Cidade, Estado, Colecao, Midia, Secao, Categoria,Status];
+const models = [User, Agendamento, Objeto, Instituicao, Pessoa, Cidade, Estado, Colecao, Midia, Secao, Categoria,Status,Manutencao];
 
 class Database {
   constructor() {

@@ -19,7 +19,7 @@ class PessoaController {
         const criarPessoa = await Pessoa.create(obj);
 
         return res.json(
-            criarPessoa.dataValues
+            criarPessoa
         );
     }
 }

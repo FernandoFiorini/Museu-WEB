@@ -1,9 +1,10 @@
 import Objeto from "../models/objeto";
+import Categoria from "../models/categoria"
 
 class ObjetoController {
     
     async salvar(req, res) {
-console.log(req)
+
         const obj = {
             tx_nomeobj: req.body.nome,
             id_categoria: req.body.categoria, //combo tela   
@@ -55,7 +56,7 @@ console.log(req)
     async delete(req,res){
 
         const idObjeto = req.body.idObjeto;
-console.log(idObjeto)
+
         if(idObjeto == null){
             return res.status(400).json({ error: "Informe" });
         }
@@ -73,8 +74,7 @@ console.log(idObjeto)
     async listar(req,res){
 
         const listObj = await Objeto.findAll();
-
-       
+        
         return res.json(
             listObj 
         );

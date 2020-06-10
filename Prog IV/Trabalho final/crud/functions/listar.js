@@ -26,7 +26,7 @@ function listar() {
                         tr += "<td>" + retorno[i].id_colecao + "</td>";
                         tr += "<td>" + retorno[i].id_status + "</td>";
                         tr += "<td>" + retorno[i].id_secao + "</td>";
-                        tr += "<td>" + '<a class="btn btn-success btn-xs" onclick="visualizar(this)">Visualizar</a>' + " " + '<a class="btn btn-warning btn-xs" onclick="pageEditar(this)">Editar</a>' + " " + '<a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal" onclick="excluir(this)">Excluir</a>' + "</td>";
+                        tr += "<td>" + '<a class="btn btn-success btn-xs" onclick="visualizar(this)">Visualizar</a>' + " " + '<a class="btn btn-warning btn-xs" onclick="pageEditar(this)">Editar</a>' + " " + '<a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal" onclick="excluir(this)">Excluir</a>'+" "+'<a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal" onclick="manutencao(this)">Manutenção</a>' + "</td>";
                         tr += "</tr>";
                         t += tr;
                     }
@@ -53,7 +53,7 @@ function pesquisar() {
         "pesquisa": textoPesquisa
     }
     if (textoPesquisa == null) {
-        listar();
+        this.listar();
     }
 
     var objeto = {
@@ -68,20 +68,30 @@ function pesquisar() {
         .then(rest => rest.json())
         .then(res => {
             if (res) {
-                $('#idObjeto').html(res.id_objeto);
-                $('#nomeObjeto').html(res.tx_nomeobj);
-                $('#categoriaObjeto').html(res.id_categoria);
-                $('#colecaoObjeto').html(res.id_colecao);
-                $('#statusObjeto').html(res.id_status);
-                $('#secaoObjeto').html(res.id_secao);
+
+                    var t = "";
+                    var tr = "<tr>";
+                    tr += "<td>" + res.id_objeto + "</td>";
+                    tr += "<td>" + res.tx_nomeobj + "</td>";
+                    tr += "<td>" + res.id_categoria + "</td>";
+                    tr += "<td>" + res.id_colecao + "</td>";
+                    tr += "<td>" + res.id_status + "</td>";
+                    tr += "<td>" + res.id_secao + "</td>";
+                    tr += "<td>" + '<a class="btn btn-success btn-xs" onclick="visualizar(this)">Visualizar</a>' + " " + '<a class="btn btn-warning btn-xs" onclick="pageEditar(this)">Editar</a>' + " " + '<a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal" onclick="excluir(this)">Excluir</a>'+ "</td>";
+                    tr += "</tr>";
+                    t += tr;
+                
+                document.getElementById("tabelaCrud").innerHTML = t;
 
 
             } else {
+                this.listar();
                 alert("Nenhum objeto com este nome, informe novamente!")
             }
 
         })
 }
+
 
 function listarUsuario() {
 
@@ -130,3 +140,11 @@ function listarUsuario() {
 
 }
 
+
+function manutencao(ex){
+    
+    var id = ex.parentNode.parentNode.cells[0].innerHTML;
+    window.location.href = "manutencao.html?id="+id;
+    
+    
+}

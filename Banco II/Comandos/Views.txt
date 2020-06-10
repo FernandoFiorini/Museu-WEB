@@ -1,0 +1,34 @@
+--RELACIONA OS OBJETOS QUE ESTÃO EM MANUTENCAO
+CREATE VIEW objetos_em_manutencao AS
+   select tx_nomeobj,dt_inicio,dt_fim from tb_manutencao man
+inner join tb_objeto obj on man.id_objeto = obj.id_objeto
+
+
+-- RELACIONA A DATA DA VISITA O NOME E O CPNJ DA INSTIUICAO QUE VISITARAM O MUSEU ENTRE 01/01/2020 ATE 31/12/2020 ORDENADA POR NOME
+CREATE VIEW visitas_museu AS
+select ag.dt_visita, ins.tx_nomeinst, ins.tx_cnpj from tb_agendamento ag
+inner join tb_instituicao ins on ag.id_instituicao = ins.id_instituicao
+where dt_visita between '2020-01-01' and '2020-12-31'
+order by ins.tx_nomeinst asc
+
+
+-- RELACIONA A QUANTIDADE DE PESSOAS QUE VISITAM O MUSEU A TARDE ORDENADA PELA QUANTIDAE 
+CREATE VIEW visitas_a_tarde AS
+select ag.hr_visita,ag.qt_pessoas, ins.tx_nomeinst from tb_agendamento ag
+inner join tb_instituicao ins on ag.id_instituicao = ins.id_instituicao
+where hr_visita between '13:00:00' and '18:00:00' 
+order by qt_pessoas
+
+
+
+-- RELACIONA A DATA DA VISITA O NOME DA INSTIUICAO E PESSOAS QUE VISITARAM O MUSEU ENTRE 01/01/2020 ATE 31/12/2020 ORDENADA POR DATA
+CREATE VIEW visitas_museu_pessoas_empresa AS
+select ag.dt_visita, ins.tx_nomeinst from tb_agendamento ag
+inner join tb_instituicao ins on ag.id_instituicao = ins.id_instituicao
+where dt_visita between '2020-01-01' and '2020-12-31'
+union all
+select ag.dt_visita, pes.tx_nome from tb_agendamento ag
+inner join tb_pessoa pes on ag.id_instituicao = pes.id_pessoa
+where dt_visita between '2020-01-01' and '2020-12-31'
+order by dt_visita asc
+

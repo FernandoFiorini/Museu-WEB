@@ -22,6 +22,7 @@ function excluir(ex) {
         .then(res => {
             if (res) {
                 alert("Excluido com sucesso!")
+                location.reload();
                 listar();
             } else {
                 alert("Falha ao Excluir")

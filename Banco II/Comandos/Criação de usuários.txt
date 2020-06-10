@@ -1,0 +1,11 @@
+create user fulldb WITH PASSWORD '123456';;
+grant all privileges on database museu_da_era to fulldb;
+
+create onlyread dbteste WITH PASSWORD '654321';
+GRANT SELECT ON tb_objeto TO dbteste;
+GRANT SELECT ON tb_agendamento TO dbteste;
+
+
+
+
+

@@ -1,0 +1,53 @@
+
+//CRIACAO DA TABELA AUDITORIA
+CREATE TABLE public.tb_auditoria (
+	id_aditoria serial NOT NULL,
+	dt_criacao_dado date  DEFAULT CURRENT_DATE,
+	hr_criacao_objeto time  DEFAULT CURRENT_TIME,
+	CONSTRAINT tb_auditoria_pkey PRIMARY KEY (id_aditoria)
+);
+
+CREATE TABLE tb_auditoria_pessoa (
+  id_aditoria SERIAL NOT NULL, 
+  dt_login date  DEFAULT CURRENT_DATE,
+  hr_login time  DEFAULT CURRENT_TIME,
+  tx_usuario varchar(255),
+  PRIMARY KEY (id_aditoria));
+  
+
+//FUNCTION QUE INSERE DADOS NA AUDITORIA
+
+CREATE OR REPLACE FUNCTION public.functioninsert()
+ RETURNS trigger
+ LANGUAGE plpgsql
+AS $function$
+BEGIN
+		 INSERT INTO tb_auditoria(dt_criacao_dado,hr_criacao_objeto)
+		 VALUES(current_date,current_time);
+	
+
+	RETURN NEW;
+END;
+$function$
+;
+
+//TRIGGERS
+
+//INSERE a data e a hora que o dado foi gravado no banco
+
+CREATE TRIGGER auditoria_insert
+  after insert
+  ON tb_objeto
+  FOR EACH ROW
+  EXECUTE PROCEDURE functionInsert();
+  
+  
+CREATE TRIGGER auditoria_pessoa
+  after insert
+  ON tb_pessoa
+  FOR EACH ROW
+  EXECUTE PROCEDURE functionpessoa();
+  
+  
+
+  

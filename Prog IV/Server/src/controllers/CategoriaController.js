@@ -10,6 +10,19 @@ class CategoriaController {
             colecao
         );
     }
+
+    async findById(req, res) {
+
+        const codigoCategoria= req.body.id;     
+  
+        const colecao = await Categoria.findOne({
+            where: { id_categoria: codigoCategoria }
+        });
+
+        return res.json(
+            colecao
+        );
+    }
 }
 
 export default new CategoriaController();

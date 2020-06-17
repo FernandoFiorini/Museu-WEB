@@ -17,7 +17,7 @@ class AgendamentoController {
         }
 
         const criarObj = await Agendamento.create(objeto);
-        console.log(criarObj)
+
         return res.json(
             criarObj ? true : false
         );

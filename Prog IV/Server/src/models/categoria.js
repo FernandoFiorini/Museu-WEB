@@ -17,7 +17,7 @@ class tb_categoria extends Model {
             })
         return this;
 
-    }
+    }  
     
 }
 
